@@ -23,7 +23,7 @@
 	  color_t color;
 	  int num;
 	  int height;
-	  int weight;
+	  int width;
 	  int orientation;
 	}piece_t;
 	
@@ -39,7 +39,7 @@
 	  int column;
 	  int end;
 	  int height;
-	  int weight;
+	  int width;
 	  int **grid;
 	  int score;
 	  int count_full_line;
@@ -60,14 +60,15 @@
 	int impossible(game_t* game);
 	int no_orientation(game_t* game);
 	int read_box(int grid[HEIGHT][HEIGHT],int line,int column);
-	int weight_piece(game_t game);
+	int width_piece(game_t game);
 	int height_piece(game_t game);
 	int verification(game_t* game);
 	void put1(game_t* game);
 	void line_max(game_t* game);
 	void placement(game_t* game);
-	int line_full(int** grid, int height,int weight,int line);
+	int line_full(int** grid, int height,int width,int line);
 	int full(game_t* game);
 	void remove_line(game_t* game);
+	void the_record(game_t game);
 	
 #endif // ifndef FILE_FCT_H

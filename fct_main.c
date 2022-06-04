@@ -16,12 +16,6 @@ void display(game_t* game){//permet d'afficher la grille
 
 void update(game_t* game){//permet de mettre à jour le jeu et ses variables
   placement(game);
-  printf("a\n");
-  fflush(stdout);
   remove_line(game);
-  printf("b\n");
-  fflush(stdout);
   end(game);
-  printf("c\n");
-  fflush(stdout);
 }
