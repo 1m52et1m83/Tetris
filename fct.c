@@ -18,12 +18,12 @@ void flush(){ //allows to eliminate the elements of the scanf that are not expec
 	
 void init_grid(game_t* game){//allows to allocate the space to the grid and to initialize it to 0
 	do{
-	printf("choisir la largeur\n");
-	scanf("%d",&game->width);
-	flush();
-	printf("choisir la hauteur\n");
-	scanf("%d",&game->height);
-	flush();
+		printf("choisir la largeur\n");
+		scanf("%d",&game->width);
+		flush();
+		printf("choisir la hauteur\n");
+		scanf("%d",&game->height);
+		flush();
 	}while(game->width>32||game->width<4||game->height>32||game->height<4);
 	game->height+=4;
 	game->grid=malloc(sizeof(int*)*game->height);
@@ -36,7 +36,7 @@ void init_grid(game_t* game){//allows to allocate the space to the grid and to i
 }
 
 
-void create_pieces (game_t* game)//allows to create the room according to the chosen column
+void create_pieces (game_t* game)//allows to create the piece according to the chosen column
 {
 	check(game->grid,2);
 	if(game->piece.num>=0&&game->piece.num<6){
@@ -433,7 +433,7 @@ for(int i=4;i<game->height;i++){
 
 
 
-void display_grid(game_t* game){//permet d'afficher la grille avec les numéro au dessus et les pièces
+void display_grid(game_t* game){//displays the grid with the numbers above and the pieces
 	check(game->grid,3);
   printf(" ");
   for(int i=0;i<game->width;i++){
@@ -451,7 +451,7 @@ void display_grid(game_t* game){//permet d'afficher la grille avec les numéro a
 }
 
 
-void show_piece(game_t* game){//permet de montrer à l'utilisateur la pièce qu'il va devoir jouer et ses orientations
+void show_piece(game_t* game){//allows to show the user the piece he will have to play and its orientations
   printf("\n");
   if(game->piece.num==0){
     printf("  oo\n  oo\n");
@@ -483,7 +483,7 @@ void show_piece(game_t* game){//permet de montrer à l'utilisateur la pièce qu'
 //--------------UPDATE------------------------------------------------
 
 
-void end(game_t* game){//permet mettre game->end à 1 si une pièce sort de la grille
+void end(game_t* game){//allows to set game->end to 1 if a piece goes out of the grid
   for(int i=0;i<4;i++){
     if(game->piece.tab[i].line<4){
       game->end=1;
@@ -491,7 +491,7 @@ void end(game_t* game){//permet mettre game->end à 1 si une pièce sort de la g
   }
 }
 
-int impossible(game_t* game){//retourne 1 si on ne peut pas jouer la pièce sur cette colonne
+int impossible(game_t* game){//returns 1 if the piece cannot be played on this column
   for(int i=0;i<4;i++){
     if(game->piece.tab[i].column<0||game->piece.tab[i].column>game->width-1){
       printf("Imppossible de choisir cette colonne %i\n",i);
@@ -501,7 +501,7 @@ int impossible(game_t* game){//retourne 1 si on ne peut pas jouer la pièce sur 
   return 0;
 }
 
-int no_orientation(game_t* game){//permet de savoir si l'orientation choisit est valide
+int no_orientation(game_t* game){//allows to know if the chosen orientation is valid
 	if(game->piece.num==1||game->piece.num==2||game->piece.num==3){
     if(game->piece.orientation==1||game->piece.orientation==2){
       return 1;
@@ -520,7 +520,7 @@ int no_orientation(game_t* game){//permet de savoir si l'orientation choisit est
   }  
 }
 
-int read_box(int grid[HEIGHT][HEIGHT],int line,int column){//permet de lire une case et de savoir si elle est libre ou non
+int read_box(int grid[HEIGHT][HEIGHT],int line,int column){//allows to read a cell and to know if it is free or not
 	if(grid[line][column]==0){
 		return 0;
 	}
@@ -530,7 +530,7 @@ int read_box(int grid[HEIGHT][HEIGHT],int line,int column){//permet de lire une 
 }
 
 
-int weight_piece(game_t game){//retourne la largeur de chaque pièce
+int weight_piece(game_t game){//returns the width of each part
   if(game.piece.num==0){
     return 2;
   }
@@ -569,7 +569,7 @@ int weight_piece(game_t game){//retourne la largeur de chaque pièce
 }
 
 
-int height_piece(game_t game){//retourne la hauteur de chaque pièce
+int height_piece(game_t game){//returns the height of each piece
   if(game.piece.num==0){
     return 2;
   }
@@ -608,7 +608,7 @@ int height_piece(game_t game){//retourne la hauteur de chaque pièce
 }
 
   
-int verification(game_t* game){//permet de vérifier que toute les cases utilisés par la pièce sont libres
+int verification(game_t* game){//allows to check that all the boxes used by the part are free
   int c=0;
   for(int i=0;i<4;i++){
     while(game->grid[game->piece.tab[i].line][game->piece.tab[i].column]==0 && game->piece.tab[0].line<game->height-1 && c<i+1){
@@ -633,7 +633,7 @@ int verification(game_t* game){//permet de vérifier que toute les cases utilis�
   
 
 
-void put1(game_t* game){ //permet d'ajouter des 1 dans la grille qui se transformeront en o
+void put1(game_t* game){ //allows to add 1's in the grid which will be transformed into o
 	check(game->grid,5);
 	for(int k=0;k<7;k++){
 		if(game->piece.num==k){
@@ -656,7 +656,7 @@ void put1(game_t* game){ //permet d'ajouter des 1 dans la grille qui se transfor
 
 
 
-void line_max(game_t* game){//permet de faire les collisions
+void line_max(game_t* game){//allows to make the collisions
   game->piece.tab[0].line=height_piece(*game)-1;
   create_pieces(game);
   while(verification(game)!=0){
@@ -668,7 +668,7 @@ void line_max(game_t* game){//permet de faire les collisions
 
 
 
-void placement(game_t* game){//fonction générale du placement de la pièce reprennant toute les fonctions du dessus
+void placement(game_t* game){//general function of the piece placement, including all functions above
 	time_t start;
 	check(game->grid,5);
   game->piece.num=random_piece();
@@ -704,7 +704,7 @@ void placement(game_t* game){//fonction générale du placement de la pièce rep
 }
 
 
-int line_full(int **grid,int height,int width,int line){//permet de savoir si une ligne est pleine
+int line_full(int **grid,int height,int width,int line){//allows to know if a line is full
 	if(line>=0&&line<height){
 		for(int i=0;i<width;i++){
 			if(grid[line][i]==0){
@@ -716,7 +716,7 @@ int line_full(int **grid,int height,int width,int line){//permet de savoir si un
 }
 
 
-int full(game_t* game){//permet de vérifier toutes les lignes de la grille et de renvoyer celle qui est pleine
+int full(game_t* game){//allows to check all the lines of the grid and to return the one that is full
 	for(int i=0;i<game->height;i++){
 		if(line_full(game->grid,game->height,game->width,i)==1){
 			return i;
@@ -729,7 +729,7 @@ int full(game_t* game){//permet de vérifier toutes les lignes de la grille et d
 
 
 
-void remove_line(game_t* game){//permet de supprimer une ligne pleine et de faire descendre toutes celle d'au dessus
+void remove_line(game_t* game){//allows you to delete a full line and bring down all the lines above it
 	check(game->grid,7);
 	game->count_full_line=0;
 	while((full(game)!=0)){
@@ -758,7 +758,6 @@ void remove_line(game_t* game){//permet de supprimer une ligne pleine et de fair
 	}
 }
 
-
 void the_record(game_t game){	
 	printf("Your time is %ld sec\n",game.timer);
   printf("Tell me your name : \n");
@@ -782,12 +781,4 @@ void the_record(game_t game){
   printf("\nThe record is held by :\nname : %s\nscore : %d\n",game.record[0].username,game.record[0].score);
   fclose(fichier);
 }
-
-
-
-
-
-
-
-
 
