@@ -18,10 +18,10 @@ void flush(){ //allows to eliminate the elements of the scanf that are not expec
 	
 void init_grid(game_t* game){//allows to allocate the space to the grid and to initialize it to 0
 	do{
-		printf("choisir la largeur\n");
+		printf("choose the width\n");
 		scanf("%d",&game->width);
 		flush();
-		printf("choisir la hauteur\n");
+		printf("choose the height\n");
 		scanf("%d",&game->height);
 		flush();
 	}while(game->width>32||game->width<4||game->height>32||game->height<4);
@@ -494,7 +494,7 @@ void end(game_t* game){//allows to set game->end to 1 if a piece goes out of the
 int impossible(game_t* game){//returns 1 if the piece cannot be played on this column
   for(int i=0;i<4;i++){
     if(game->piece.tab[i].column<0||game->piece.tab[i].column>game->width-1){
-      printf("Imppossible de choisir cette colonne %i\n",i);
+      printf("Impossible to select this column %i\n",i);
       return 1;
     }
   }
