@@ -1,19 +1,17 @@
-Le jeu que nous avons choisi est le Tetris. Le but du jeu est de faire le meilleur score. La partie commence lorsque l’on vous demande de choisir la hauteur et la largeur de la grille.
+The game we have chosen is Tetris. The aim of the game is to make the best score. The game starts when you are asked to choose the height and width of the grid.
 
-Le score augmente en complétant des lignes et non des colonnes. Afin de compléter ces lignes, il vous faudra placer les pièces stratégiquement. Les pièces seront définies aléatoirement. Le jeu vous demandera alors de choisir une orientation de la pièce, ainsi que sa colonne. Chaque pièce est constituée de quatre cases. Ainsi pour choisir la bonne colonne de la pièce, il vous faudra indiquer la colonne de la cases la plus en bas à gauche.
+The score increases by completing rows, not columns. In order to complete these rows, you will have to place the pieces strategically. The pieces will be defined randomly. The game will then ask you to choose an orientation of the piece, as well as its column. Each piece consists of four squares. So to choose the right column of the piece, you will have to indicate the column of the bottom leftmost square.
 
-Si vous prenez plus de 15 secondes pour placer la pièce, alors la pièce se placera dans une colonne choisi aléatoirement.
+If you take more than 15 seconds to place the coin, then the coin will be placed in a randomly chosen column.
 
-En fonction du nombre de lignes que vous complétez à l’aide d’une pièce, votre nombre de points augmente :
+The more rows you complete with a coin, the more points you get:
 
-pour une ligne effacée, on gagne 10 points
-pour deux lignes, on gagne 40 points
-pour trois lignes, 
-pour quatre lignes, on gagne 1200 points
-Le jeu prend fin lorsque l’une des pièces atteint le haut de la grille, vous en saurez prévenu quand les pièces sortantes s’afficheront avec des # et non des O. Elle peut également prendre fin au bout d’un certain temps déterminé en fonction de la largeur que vous aurez choisi en début. Au terme de la partie, le jeu vous demandera votre pseudo afin de savoir si vous avez battu le record détenu du jeu. Si c’est le cas, votre nom et votre score seront inscrits dans un fichier, et les autres utilisateurs tenteront de battre votre record.
-
-
+for one line cleared, you gain 10 points
+for two lines, you gain 40 points
+for three lines, 
+for four lines, you get 1200 points
+The game ends when one of the pieces reaches the top of the grid, you will be warned when the outgoing pieces are displayed with #'s instead of O's. It can also end after a certain time determined by the width you have chosen at the beginning. At the end of the game, the game will ask you for your nickname to see if you have beaten the game's record. If you did, your name and score will be entered into a file, and other users will try to beat your record.
 
 
+To compile the program and run it, simply enter the command "make" on your terminal. To delete the executable file and the object files, you will have to enter "make clean".
 
-Pour compiler le programme et le lancer il vous suffit de rentrer la commande « make »sur votre terminal. Pour effacer le fichier exécutable et les fichier objet il vous faudra alors rentrer « make clean »
